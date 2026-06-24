@@ -1,0 +1,25 @@
+2026-06-24 14:00:03,458 | INFO | __main__ | ============================================================
+2026-06-24 14:00:03,459 | INFO | __main__ | FEATURE ENGINEERING PIPELINE STARTED
+2026-06-24 14:00:03,459 | INFO | __main__ | ============================================================
+2026-06-24 14:00:03,459 | INFO | __main__ | Loading dataset from bank_data_transformed.csv
+2026-06-24 14:00:03,590 | INFO | __main__ | Dataset loaded successfully | Shape=(45211, 17)
+2026-06-24 14:00:03,590 | INFO | __main__ | Data validation passed
+2026-06-24 14:00:03,591 | INFO | __main__ | Starting categorical encoding
+2026-06-24 14:00:03,592 | INFO | __main__ | Found 10 categorical columns
+2026-06-24 14:00:03,628 | INFO | __main__ | job -> One Hot Encoded
+2026-06-24 14:00:03,662 | INFO | __main__ | marital -> One Hot Encoded
+2026-06-24 14:00:03,698 | INFO | __main__ | education -> One Hot Encoded
+2026-06-24 14:00:03,705 | INFO | __main__ | default_flag -> Label Encoded
+2026-06-24 14:00:03,715 | INFO | __main__ | housing -> Label Encoded
+2026-06-24 14:00:03,729 | INFO | __main__ | loan -> Label Encoded
+2026-06-24 14:00:03,766 | INFO | __main__ | contact -> One Hot Encoded
+2026-06-24 14:00:03,802 | INFO | __main__ | month -> One Hot Encoded
+2026-06-24 14:00:03,839 | INFO | __main__ | poutcome -> One Hot Encoded
+2026-06-24 14:00:03,847 | INFO | __main__ | deposit -> Label Encoded
+2026-06-24 14:00:03,847 | INFO | __main__ | Categorical encoding completed
+2026-06-24 14:00:03,853 | INFO | __main__ | Starting feature scaling
+2026-06-24 14:00:03,892 | INFO | __main__ | Feature scaling completed
+2026-06-24 14:00:05,362 | INFO | __main__ | Dataset saved -> bank_data_encoded.csv
+2026-06-24 14:00:05,362 | INFO | __main__ | Final dataset shape: (45211, 49)
+2026-06-24 14:00:05,363 | INFO | __main__ | Pipeline completed successfully
+2026-06-24 14:00:05,363 | INFO | __main__ | Pipeline execution finished

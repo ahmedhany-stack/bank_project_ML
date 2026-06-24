@@ -1,0 +1,20 @@
+[project]
+name = "breast-cancer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "imbalanced-learn>=0.14.2",
+    "lightgbm>=4.6.0",
+    "logging>=0.4.9.6",
+    "matplotlib>=3.10.9",
+    "mysql-connector-python>=9.7.0",
+    "numpy>=2.2.6",
+    "pandas>=2.3.3",
+    "pymysql>=1.2.0",
+    "scikit-learn>=1.7.2",
+    "seaborn>=0.13.2",
+    "sqlalchemy>=2.0.51",
+    "xgboost>=3.2.0",
+]

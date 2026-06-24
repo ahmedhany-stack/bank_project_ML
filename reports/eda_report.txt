@@ -1,0 +1,231 @@
+================================================================================
+DATASET OVERVIEW
+================================================================================
+Shape: (45211, 17)
+
+
+================================================================================
+DATA TYPES
+================================================================================
+age              int64
+job             object
+marital         object
+education       object
+default_flag    object
+balance          int64
+housing         object
+loan            object
+contact         object
+day              int64
+month           object
+duration         int64
+campaign         int64
+pdays            int64
+previous         int64
+poutcome        object
+deposit         object
+dtype: object
+
+
+================================================================================
+MISSING VALUES
+================================================================================
+age             0
+job             0
+marital         0
+education       0
+default_flag    0
+balance         0
+housing         0
+loan            0
+contact         0
+day             0
+month           0
+duration        0
+campaign        0
+pdays           0
+previous        0
+poutcome        0
+deposit         0
+dtype: int64
+
+
+================================================================================
+MISSING VALUES (%)
+================================================================================
+age             0.0
+job             0.0
+marital         0.0
+education       0.0
+default_flag    0.0
+balance         0.0
+housing         0.0
+loan            0.0
+contact         0.0
+day             0.0
+month           0.0
+duration        0.0
+campaign        0.0
+pdays           0.0
+previous        0.0
+poutcome        0.0
+deposit         0.0
+dtype: float64
+
+
+================================================================================
+DUPLICATES
+================================================================================
+0
+
+
+================================================================================
+NUMERICAL SUMMARY
+================================================================================
+                age        balance           day      duration      campaign         pdays      previous
+count  45211.000000   45211.000000  45211.000000  45211.000000  45211.000000  45211.000000  45211.000000
+mean      40.936210    1362.272058     15.806419    258.163080      2.763841     40.197828      0.580323
+std       10.618762    3044.765829      8.322476    257.527812      3.098021    100.128746      2.303441
+min       18.000000   -8019.000000      1.000000      0.000000      1.000000     -1.000000      0.000000
+25%       33.000000      72.000000      8.000000    103.000000      1.000000     -1.000000      0.000000
+50%       39.000000     448.000000     16.000000    180.000000      2.000000     -1.000000      0.000000
+75%       48.000000    1428.000000     21.000000    319.000000      3.000000     -1.000000      0.000000
+max       95.000000  102127.000000     31.000000   4918.000000     63.000000    871.000000    275.000000
+
+
+================================================================================
+TARGET DISTRIBUTION
+================================================================================
+deposit
+no     39922
+yes     5289
+Name: count, dtype: int64
+
+
+deposit
+no     88.30152
+yes    11.69848
+Name: proportion, dtype: float64
+
+
+================================================================================
+UNIQUE VALUES
+================================================================================
+age: 77
+job: 12
+marital: 3
+education: 4
+default_flag: 2
+balance: 7168
+housing: 2
+loan: 2
+contact: 3
+day: 31
+month: 12
+duration: 1573
+campaign: 48
+pdays: 559
+previous: 41
+poutcome: 4
+deposit: 2
+
+
+================================================================================
+CATEGORICAL FEATURES
+================================================================================
+
+
+Column: job
+job
+blue-collar      9732
+management       9458
+technician       7597
+admin.           5171
+services         4154
+retired          2264
+self-employed    1579
+entrepreneur     1487
+unemployed       1303
+housemaid        1240
+student           938
+unknown           288
+Name: count, dtype: int64
+
+
+Column: marital
+marital
+married     27214
+single      12790
+divorced     5207
+Name: count, dtype: int64
+
+
+Column: education
+education
+secondary    23202
+tertiary     13301
+primary       6851
+unknown       1857
+Name: count, dtype: int64
+
+
+Column: default_flag
+default_flag
+no     44396
+yes      815
+Name: count, dtype: int64
+
+
+Column: housing
+housing
+yes    25130
+no     20081
+Name: count, dtype: int64
+
+
+Column: loan
+loan
+no     37967
+yes     7244
+Name: count, dtype: int64
+
+
+Column: contact
+contact
+cellular     29285
+unknown      13020
+telephone     2906
+Name: count, dtype: int64
+
+
+Column: month
+month
+may    13766
+jul     6895
+aug     6247
+jun     5341
+nov     3970
+apr     2932
+feb     2649
+jan     1403
+oct      738
+sep      579
+mar      477
+dec      214
+Name: count, dtype: int64
+
+
+Column: poutcome
+poutcome
+unknown    36959
+failure     4901
+other       1840
+success     1511
+Name: count, dtype: int64
+
+
+Column: deposit
+deposit
+no     39922
+yes     5289
+Name: count, dtype: int64

@@ -1,0 +1,15 @@
+2026-06-24 13:58:46,778 | INFO | __main__ | ============================================================
+2026-06-24 13:58:46,779 | INFO | __main__ | OUTLIER CAPPING PIPELINE STARTED
+2026-06-24 13:58:46,779 | INFO | __main__ | ============================================================
+2026-06-24 13:58:46,780 | INFO | __main__ | Validation passed | Shape=(45211, 17)
+2026-06-24 13:58:46,786 | INFO | __main__ | Found 7 numeric columns
+2026-06-24 13:58:46,786 | INFO | __main__ | Columns selected for capping: ['day', 'campaign']
+2026-06-24 13:58:46,787 | INFO | __main__ | Starting outlier capping process
+2026-06-24 13:58:46,796 | INFO | __main__ | day -> capped 0 outliers
+2026-06-24 13:58:46,799 | INFO | __main__ | campaign -> capped 3064 outliers
+2026-06-24 13:58:46,802 | INFO | __main__ | Outlier capping completed | Total capped values=3064
+2026-06-24 13:58:47,046 | INFO | __main__ | Dataset saved successfully -> cleaned_bank_data.csv
+2026-06-24 13:58:47,056 | INFO | __main__ | Generating boxplots
+2026-06-24 13:59:00,438 | INFO | __main__ | Visualization completed
+2026-06-24 13:59:00,438 | INFO | __main__ | Pipeline completed successfully
+2026-06-24 13:59:00,439 | INFO | __main__ | Pipeline execution finished

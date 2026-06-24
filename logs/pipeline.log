@@ -1,0 +1,34 @@
+2026-06-24 13:55:45,438 | INFO | Pipeline started
+2026-06-24 13:55:45,439 | INFO | Loading data from cleaned_bank_data_from_outliers.csv
+2026-06-24 13:55:45,531 | INFO | Dataset loaded successfully | Shape=(45211, 17)
+2026-06-24 13:55:45,532 | INFO | Validation passed
+2026-06-24 13:55:45,534 | INFO | Numeric columns selected: 7
+2026-06-24 13:55:45,534 | INFO | Starting Power Transformation
+2026-06-24 13:55:45,576 | INFO | age transformed successfully
+2026-06-24 13:55:49,631 | INFO | balance transformed successfully
+2026-06-24 13:55:52,820 | INFO | day transformed successfully
+2026-06-24 13:55:55,803 | INFO | duration transformed successfully
+2026-06-24 13:55:59,627 | INFO | campaign transformed successfully
+2026-06-24 13:56:02,274 | INFO | pdays transformed successfully
+2026-06-24 13:56:04,944 | INFO | previous transformed successfully
+2026-06-24 13:56:06,862 | INFO | Transformation completed | Columns transformed=7
+2026-06-24 13:56:07,439 | INFO | Dataset saved to bank_data_transformed.csv
+2026-06-24 13:56:07,439 | INFO | Pipeline completed successfully
+2026-06-24 13:56:07,444 | INFO | Pipeline execution finished
+2026-06-24 14:47:02,214 | INFO | Pipeline started
+2026-06-24 14:47:02,214 | INFO | Loading data from cleaned_bank_data_from_outliers.csv
+2026-06-24 14:47:02,291 | INFO | Dataset loaded successfully | Shape=(45211, 17)
+2026-06-24 14:47:02,291 | INFO | Validation passed
+2026-06-24 14:47:02,293 | INFO | Numeric columns selected: 7
+2026-06-24 14:47:02,293 | INFO | Starting Power Transformation
+2026-06-24 14:47:02,316 | INFO | age transformed successfully
+2026-06-24 14:47:05,737 | INFO | balance transformed successfully
+2026-06-24 14:47:08,604 | INFO | day transformed successfully
+2026-06-24 14:47:11,782 | INFO | duration transformed successfully
+2026-06-24 14:47:14,290 | INFO | campaign transformed successfully
+2026-06-24 14:47:17,058 | INFO | pdays transformed successfully
+2026-06-24 14:47:19,698 | INFO | previous transformed successfully
+2026-06-24 14:47:21,514 | INFO | Transformation completed | Columns transformed=7
+2026-06-24 14:47:21,989 | INFO | Dataset saved to bank_data_transformed.csv
+2026-06-24 14:47:21,989 | INFO | Pipeline completed successfully
+2026-06-24 14:47:21,989 | INFO | Pipeline execution finished

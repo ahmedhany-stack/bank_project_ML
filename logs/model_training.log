@@ -1,0 +1,21 @@
+2026-06-24 14:16:05,547 | INFO | logger | Pipeline Started
+2026-06-24 14:16:05,547 | INFO | logger | Starting feature engineering
+2026-06-24 14:16:05,547 | INFO | logger | Feature engineering completed
+2026-06-24 14:16:09,224 | INFO | logger | Accuracy=0.7258
+2026-06-24 14:16:09,232 | INFO | logger | Precision=0.2955
+2026-06-24 14:16:09,232 | INFO | logger | Recall=0.9707
+2026-06-24 14:16:09,239 | INFO | logger | F1=0.4530
+2026-06-24 14:16:09,242 | INFO | logger | 
+[[5536 2449]
+ [  31 1027]]
+2026-06-24 14:16:09,250 | INFO | logger | 
+              precision    recall  f1-score   support
+
+           0       0.99      0.69      0.82      7985
+           1       0.30      0.97      0.45      1058
+
+    accuracy                           0.73      9043
+   macro avg       0.64      0.83      0.64      9043
+weighted avg       0.91      0.73      0.77      9043
+
+2026-06-24 14:16:09,275 | INFO | logger | Pipeline Finished
