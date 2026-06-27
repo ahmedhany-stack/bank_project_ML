@@ -9,65 +9,103 @@ from sklearn.metrics import (
     classification_report
 )
 
-from logger import logger
+from src.logger import logger
 
 
 def find_best_threshold(
     probs,
-    y_test
+    y_true
 ):
 
-    best_threshold = 0.5
-    best_recall = 0
+    logger.info("Searching best threshold...")
 
-    for t in np.arange(
+    best_threshold = 0.5
+    best_f1 = 0
+
+    for threshold in np.arange(
         0.10,
-        0.60,
+        0.90,
         0.01
     ):
 
-        preds = (
-            probs >= t
+        predictions = (
+            probs >= threshold
         ).astype(int)
 
-        recall = recall_score(
-            y_test,
-            preds
+        f1 = f1_score(
+            y_true,
+            predictions
         )
 
-        if recall > best_recall:
+        if f1 > best_f1:
 
-            best_recall = recall
-            best_threshold = t
+            best_f1 = f1
+            best_threshold = threshold
+
+    logger.info(
+        f"Best Threshold = {best_threshold:.2f}"
+    )
+
+    logger.info(
+        f"Best F1 Score = {best_f1:.4f}"
+    )
 
     return best_threshold
 
 
 def evaluate(
-    y_test,
+    y_true,
     y_pred
 ):
 
-    logger.info(
-        f"Accuracy={accuracy_score(y_test,y_pred):.4f}"
+    accuracy = accuracy_score(
+        y_true,
+        y_pred
     )
 
-    logger.info(
-        f"Precision={precision_score(y_test,y_pred):.4f}"
+    precision = precision_score(
+        y_true,
+        y_pred
     )
 
-    logger.info(
-        f"Recall={recall_score(y_test,y_pred):.4f}"
+    recall = recall_score(
+        y_true,
+        y_pred
     )
 
-    logger.info(
-        f"F1={f1_score(y_test,y_pred):.4f}"
+    f1 = f1_score(
+        y_true,
+        y_pred
     )
 
-    logger.info(
-        f"\n{confusion_matrix(y_test,y_pred)}"
+    cm = confusion_matrix(
+        y_true,
+        y_pred
     )
 
-    logger.info(
-        f"\n{classification_report(y_test,y_pred)}"
+    report = classification_report(
+        y_true,
+        y_pred
     )
+
+    logger.info("=" * 60)
+    logger.info("MODEL EVALUATION")
+    logger.info("=" * 60)
+
+    logger.info(f"Accuracy  : {accuracy:.4f}")
+    logger.info(f"Precision : {precision:.4f}")
+    logger.info(f"Recall    : {recall:.4f}")
+    logger.info(f"F1 Score  : {f1:.4f}")
+
+    logger.info("\nConfusion Matrix")
+    logger.info(f"\n{cm}")
+
+    logger.info("\nClassification Report")
+    logger.info(f"\n{report}")
+
+    return {
+        "accuracy": accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1
+    }

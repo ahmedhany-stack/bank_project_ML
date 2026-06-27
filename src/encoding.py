@@ -1,301 +1,238 @@
-import pandas as pd
-import logging
 import os
+import pickle
 
+import pandas as pd
+
+from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import (
-    LabelEncoder,
     OneHotEncoder,
     MinMaxScaler
 )
 
-# ===================================
+from src.logger import logger
+
+
+# ============================================
 # CONFIG
-# ===================================
+# ============================================
 
-INPUT_FILE = "bank_data_transformed.csv"
-OUTPUT_FILE = "bank_data_encoded.csv"
+TARGET = "deposit"
 
-LOG_DIR = "logs"
-LOG_FILE = os.path.join(
-    LOG_DIR,
-    "feature_engineering_pipeline.log"
-)
+PREPROCESSOR_PATH = "models/preprocessor.pkl"
 
 os.makedirs(
-    LOG_DIR,
+    "models",
     exist_ok=True
 )
 
-# ===================================
-# LOGGING
-# ===================================
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+# ============================================
+# BUILD PREPROCESSOR
+# ============================================
 
-formatter = logging.Formatter(
-    "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
-)
-
-file_handler = logging.FileHandler(
-    LOG_FILE,
-    mode="a"
-)
-
-file_handler.setFormatter(
-    formatter
-)
-
-console_handler = logging.StreamHandler()
-
-console_handler.setFormatter(
-    formatter
-)
-
-logger.addHandler(file_handler)
-logger.addHandler(console_handler)
-
-# ===================================
-# LOAD DATA
-# ===================================
-
-def load_data(
-    file_path: str
-) -> pd.DataFrame:
+def build_preprocessor(
+    X: pd.DataFrame
+) -> ColumnTransformer:
 
     logger.info(
-        f"Loading dataset from {file_path}"
+        "Building preprocessing pipeline"
     )
 
-    df = pd.read_csv(file_path)
+    categorical_columns = X.select_dtypes(
+        include=["object", "category"]
+    ).columns.tolist()
 
-    logger.info(
-        f"Dataset loaded successfully | Shape={df.shape}"
-    )
-
-    return df
-
-
-# ===================================
-# VALIDATE DATA
-# ===================================
-
-def validate_dataframe(
-    df: pd.DataFrame
-) -> None:
-
-    if df is None:
-        raise ValueError(
-            "DataFrame is None"
-        )
-
-    if df.empty:
-        raise ValueError(
-            "DataFrame is empty"
-        )
-
-    logger.info(
-        "Data validation passed"
-    )
-
-
-# ===================================
-# ENCODE CATEGORICAL FEATURES
-# ===================================
-
-def encode_categorical_features(
-    df: pd.DataFrame
-) -> pd.DataFrame:
-
-    logger.info(
-        "Starting categorical encoding"
-    )
-
-    label_encoder = LabelEncoder()
-    onehot_encoder = OneHotEncoder(
-        sparse_output=False,
-        handle_unknown="ignore"
-    )
-
-    categorical_cols = df.select_dtypes(
-        include=["object"]
+    numerical_columns = X.select_dtypes(
+        exclude=["object", "category"]
     ).columns.tolist()
 
     logger.info(
-        f"Found {len(categorical_cols)} categorical columns"
+        f"Categorical Columns : {categorical_columns}"
     )
-
-    for col in categorical_cols:
-
-        unique_values = df[col].nunique()
-
-        if unique_values == 2:
-
-            df[col] = label_encoder.fit_transform(
-                df[col]
-            )
-
-            logger.info(
-                f"{col} -> Label Encoded"
-            )
-
-        else:
-
-            encoded_data = onehot_encoder.fit_transform(
-                df[[col]]
-            )
-
-            encoded_df = pd.DataFrame(
-                encoded_data,
-                columns=[
-                    f"{col}_{category}"
-                    for category in onehot_encoder.categories_[0]
-                ],
-                index=df.index
-            )
-
-            df = pd.concat(
-                [
-                    df.drop(
-                        columns=[col]
-                    ),
-                    encoded_df
-                ],
-                axis=1
-            )
-
-            logger.info(
-                f"{col} -> One Hot Encoded"
-            )
 
     logger.info(
-        "Categorical encoding completed"
+        f"Numerical Columns : {numerical_columns}"
     )
 
-    return df
+    preprocessor = ColumnTransformer(
 
+        transformers=[
 
-# ===================================
-# SCALE FEATURES
-# ===================================
+            (
 
-def scale_features(
-    df: pd.DataFrame
-) -> pd.DataFrame:
+                "categorical",
 
-    logger.info(
-        "Starting feature scaling"
-    )
+                OneHotEncoder(
 
-    target = df["deposit"]
+                    handle_unknown="ignore",
 
-    features = df.drop(
-        columns=["deposit"]
-    )
+                    sparse_output=False
 
-    scaler = MinMaxScaler()
+                ),
 
-    scaled_features = scaler.fit_transform(
-        features
-    )
+                categorical_columns
 
-    scaled_df = pd.DataFrame(
-        scaled_features,
-        columns=features.columns,
-        index=df.index
-    )
+            ),
 
-    final_df = pd.concat(
-        [
-            scaled_df,
-            target
+            (
+
+                "numerical",
+
+                MinMaxScaler(),
+
+                numerical_columns
+
+            )
+
         ],
-        axis=1
+
+        remainder="drop"
+
+    )
+
+    return preprocessor
+
+
+# ============================================
+# FIT PREPROCESSOR
+# ============================================
+
+def fit_preprocessor(
+    X: pd.DataFrame
+):
+
+    logger.info(
+        "Fitting preprocessing pipeline"
+    )
+
+    preprocessor = build_preprocessor(X)
+
+    preprocessor.fit(X)
+
+    with open(
+        PREPROCESSOR_PATH,
+        "wb"
+    ) as f:
+
+        pickle.dump(
+            preprocessor,
+            f
+        )
+
+    logger.info(
+        "Preprocessor saved successfully"
+    )
+
+    return preprocessor
+
+
+# ============================================
+# LOAD PREPROCESSOR
+# ============================================
+
+def load_preprocessor():
+
+    if not os.path.exists(
+        PREPROCESSOR_PATH
+    ):
+
+        raise FileNotFoundError(
+            "Preprocessor not found."
+        )
+
+    with open(
+        PREPROCESSOR_PATH,
+        "rb"
+    ) as f:
+
+        return pickle.load(f)
+
+
+# ============================================
+# TRANSFORM TRAIN DATA
+# ============================================
+
+def transform_train_data(
+    df: pd.DataFrame
+):
+
+    logger.info(
+        "Transforming training data"
+    )
+
+    X = df.drop(
+        columns=[TARGET]
+    )
+
+    y = df[TARGET]
+
+    preprocessor = fit_preprocessor(X)
+
+    X_processed = preprocessor.transform(X)
+
+    feature_names = preprocessor.get_feature_names_out()
+
+    X_processed = pd.DataFrame(
+
+        X_processed,
+
+        columns=feature_names,
+
+        index=X.index
+
     )
 
     logger.info(
-        "Feature scaling completed"
+        f"Processed Shape : {X_processed.shape}"
     )
 
-    return final_df
+    return X_processed, y
 
 
-# ===================================
-# SAVE DATA
-# ===================================
+# ============================================
+# TRANSFORM PREDICTION DATA
+# ============================================
 
-def save_dataset(
-    df: pd.DataFrame,
-    filename: str
-) -> None:
-
-    df.to_csv(
-        filename,
-        index=False
-    )
+def transform_prediction_data(
+    df: pd.DataFrame
+):
 
     logger.info(
-        f"Dataset saved -> {filename}"
+        "Transforming prediction data"
     )
 
+    preprocessor = load_preprocessor()
 
-# ===================================
-# MAIN PIPELINE
-# ===================================
+    X_processed = preprocessor.transform(df)
 
-def main():
+    feature_names = preprocessor.get_feature_names_out()
 
-    try:
+    X_processed = pd.DataFrame(
 
-        logger.info("=" * 60)
-        logger.info(
-            "FEATURE ENGINEERING PIPELINE STARTED"
-        )
-        logger.info("=" * 60)
+        X_processed,
 
-        df = load_data(
-            INPUT_FILE
-        )
+        columns=feature_names,
 
-        validate_dataframe(
-            df
-        )
+        index=df.index
 
-        df = encode_categorical_features(
-            df
-        )
+    )
 
-        final_df = scale_features(
-            df
-        )
-
-        save_dataset(
-            final_df,
-            OUTPUT_FILE
-        )
-
-        logger.info(
-            f"Final dataset shape: {final_df.shape}"
-        )
-
-        logger.info(
-            "Pipeline completed successfully"
-        )
-
-    except Exception as e:
-
-        logger.exception(
-            f"Pipeline failed: {e}"
-        )
-
-        raise
-
-    finally:
-
-        logger.info(
-            "Pipeline execution finished"
-        )
+    return X_processed
 
 
 if __name__ == "__main__":
-    main()
+
+    df = pd.read_csv("bank_data_transformed.csv")
+
+    df["deposit"] = df["deposit"].map({
+        "no": 0,
+        "yes": 1
+    })
+
+    from feature_engineering import create_features
+
+    df = create_features(df)
+
+    X, y = transform_train_data(df)
+
+    print(X.shape)

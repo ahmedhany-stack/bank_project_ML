@@ -2,7 +2,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
-
+from src.logger import logger
+from src.config import config
 from sklearn.preprocessing import PowerTransformer
 
 # =====================================

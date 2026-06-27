@@ -23,3 +23,29 @@
 2026-06-24 14:00:05,362 | INFO | __main__ | Final dataset shape: (45211, 49)
 2026-06-24 14:00:05,363 | INFO | __main__ | Pipeline completed successfully
 2026-06-24 14:00:05,363 | INFO | __main__ | Pipeline execution finished
+2026-06-27 12:31:08,831 | INFO | src.encoding | Starting categorical encoding
+2026-06-27 12:31:08,831 | INFO | src.encoding | Found 9 categorical columns
+2026-06-27 12:31:08,852 | INFO | src.encoding | job -> One Hot Encoded
+2026-06-27 12:31:08,852 | INFO | src.encoding | marital -> One Hot Encoded
+2026-06-27 12:31:08,861 | INFO | src.encoding | education -> One Hot Encoded
+2026-06-27 12:31:08,866 | INFO | src.encoding | default_flag -> One Hot Encoded
+2026-06-27 12:31:08,870 | INFO | src.encoding | housing -> One Hot Encoded
+2026-06-27 12:31:08,873 | INFO | src.encoding | loan -> One Hot Encoded
+2026-06-27 12:31:08,880 | INFO | src.encoding | contact -> One Hot Encoded
+2026-06-27 12:31:08,884 | INFO | src.encoding | month -> One Hot Encoded
+2026-06-27 12:31:08,888 | INFO | src.encoding | poutcome -> One Hot Encoded
+2026-06-27 12:31:08,889 | INFO | src.encoding | Categorical encoding completed
+2026-06-27 12:31:08,889 | INFO | src.encoding | Starting feature scaling
+2026-06-27 12:31:46,624 | INFO | src.encoding | Starting categorical encoding
+2026-06-27 12:31:46,625 | INFO | src.encoding | Found 9 categorical columns
+2026-06-27 12:31:46,630 | INFO | src.encoding | job -> One Hot Encoded
+2026-06-27 12:31:46,635 | INFO | src.encoding | marital -> One Hot Encoded
+2026-06-27 12:31:46,639 | INFO | src.encoding | education -> One Hot Encoded
+2026-06-27 12:31:46,643 | INFO | src.encoding | default_flag -> One Hot Encoded
+2026-06-27 12:31:46,645 | INFO | src.encoding | housing -> One Hot Encoded
+2026-06-27 12:31:46,645 | INFO | src.encoding | loan -> One Hot Encoded
+2026-06-27 12:31:46,657 | INFO | src.encoding | contact -> One Hot Encoded
+2026-06-27 12:31:46,661 | INFO | src.encoding | month -> One Hot Encoded
+2026-06-27 12:31:46,665 | INFO | src.encoding | poutcome -> One Hot Encoded
+2026-06-27 12:31:46,665 | INFO | src.encoding | Categorical encoding completed
+2026-06-27 12:31:46,666 | INFO | src.encoding | Starting feature scaling

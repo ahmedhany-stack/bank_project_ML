@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "apache-airflow>=3.2.2",
     "imbalanced-learn>=0.14.2",
     "lightgbm>=4.6.0",
     "logging>=0.4.9.6",

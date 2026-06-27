@@ -19,3 +19,602 @@
 weighted avg       0.91      0.73      0.77      9043
 
 2026-06-24 14:16:09,275 | INFO | logger | Pipeline Finished
+2026-06-25 11:01:33,247 | INFO | logger | Pipeline Started
+2026-06-25 11:01:33,247 | INFO | logger | Starting feature engineering
+2026-06-25 11:01:33,268 | INFO | logger | Feature engineering completed
+2026-06-25 11:01:37,135 | INFO | logger | Accuracy=0.7258
+2026-06-25 11:01:37,151 | INFO | logger | Precision=0.2955
+2026-06-25 11:01:37,151 | INFO | logger | Recall=0.9707
+2026-06-25 11:01:37,158 | INFO | logger | F1=0.4530
+2026-06-25 11:01:37,160 | INFO | logger | 
+[[5536 2449]
+ [  31 1027]]
+2026-06-25 11:01:37,169 | INFO | logger | 
+              precision    recall  f1-score   support
+
+           0       0.99      0.69      0.82      7985
+           1       0.30      0.97      0.45      1058
+
+    accuracy                           0.73      9043
+   macro avg       0.64      0.83      0.64      9043
+weighted avg       0.91      0.73      0.77      9043
+
+2026-06-25 11:01:37,194 | INFO | logger | Pipeline Finished
+2026-06-25 11:26:20,253 | INFO | src.logger | Pipeline Started
+2026-06-25 11:26:20,255 | INFO | src.logger | Pipeline Started
+2026-06-25 11:26:20,262 | ERROR | src.logger | حدث خطأ في الـ Pipeline: [Errno 2] No such file or directory: 'bank_data_encoded.csv'
+Traceback (most recent call last):
+  File "/opt/airflow/dags/src/main.py", line 16, in main
+    final_df = pd.read_csv("bank_data_encoded.csv")
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'bank_data_encoded.csv'
+2026-06-27 12:31:08,811 | INFO | src.logger | Starting feature engineering
+2026-06-27 12:31:08,831 | INFO | src.logger | Feature engineering completed
+2026-06-27 12:31:46,608 | INFO | src.logger | Starting feature engineering
+2026-06-27 12:31:46,608 | INFO | src.logger | Feature engineering completed
+2026-06-27 13:04:50,617 | INFO | src.logger | ============================================================
+2026-06-27 13:04:50,618 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 13:04:50,619 | INFO | src.logger | ============================================================
+2026-06-27 13:04:50,622 | ERROR | src.logger | [Errno 2] No such file or directory: 'bank_data_transformed.csv'
+Traceback (most recent call last):
+  File "/opt/airflow/dags/src/main.py", line 38, in main
+    df = pd.read_csv("bank_data_transformed.csv")
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'bank_data_transformed.csv'
+2026-06-27 13:08:30,062 | INFO | src.logger | ============================================================
+2026-06-27 13:08:30,064 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 13:08:30,065 | INFO | src.logger | ============================================================
+2026-06-27 13:08:30,068 | ERROR | src.logger | [Errno 2] No such file or directory: 'bank_data_transformed.csv'
+Traceback (most recent call last):
+  File "/opt/airflow/dags/src/main.py", line 38, in main
+    df = pd.read_csv("bank_data_transformed.csv")
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'bank_data_transformed.csv'
+2026-06-27 13:09:34,663 | INFO | src.logger | ============================================================
+2026-06-27 13:09:34,664 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 13:09:34,665 | INFO | src.logger | ============================================================
+2026-06-27 13:09:34,669 | ERROR | src.logger | [Errno 2] No such file or directory: 'bank_data_transformed.csv'
+Traceback (most recent call last):
+  File "/opt/airflow/dags/src/main.py", line 38, in main
+    df = pd.read_csv("bank_data_transformed.csv")
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'bank_data_transformed.csv'
+2026-06-27 13:10:46,336 | INFO | src.logger | ============================================================
+2026-06-27 13:10:46,338 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 13:10:46,339 | INFO | src.logger | ============================================================
+2026-06-27 13:10:46,342 | ERROR | src.logger | [Errno 2] No such file or directory: 'bank_data_transformed.csv'
+Traceback (most recent call last):
+  File "/opt/airflow/dags/src/main.py", line 38, in main
+    df = pd.read_csv("bank_data_transformed.csv")
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'bank_data_transformed.csv'
+2026-06-27 13:13:31,371 | INFO | src.logger | ============================================================
+2026-06-27 13:13:31,373 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 13:13:31,373 | INFO | src.logger | ============================================================
+2026-06-27 13:13:31,565 | INFO | src.logger | Starting feature engineering
+2026-06-27 13:13:31,577 | ERROR | src.logger | Cannot convert float NaN to integer
+Traceback (most recent call last):
+  File "/opt/airflow/dags/src/main.py", line 48, in main
+    df = create_features(df)
+  File "/opt/airflow/dags/src/feature_engineering.py", line 68, in create_features
+    ).astype(int)
+      ~~~~~~^^^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/generic.py", line 6665, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/internals/managers.py", line 449, in astype
+    return self.apply(
+           ~~~~~~~~~~^
+        "astype",
+        ^^^^^^^^^
+    ...<3 lines>...
+        using_cow=using_copy_on_write(),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/internals/managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/internals/blocks.py", line 784, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/dtypes/astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/dtypes/astype.py", line 179, in astype_array
+    values = values.astype(dtype, copy=copy)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/arrays/categorical.py", line 577, in astype
+    raise ValueError("Cannot convert float NaN to integer")
+ValueError: Cannot convert float NaN to integer
+2026-06-27 13:16:57,097 | INFO | src.logger | ============================================================
+2026-06-27 13:16:57,099 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 13:16:57,100 | INFO | src.logger | ============================================================
+2026-06-27 13:16:57,323 | INFO | src.logger | ============================================================
+2026-06-27 13:16:57,324 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 13:16:57,325 | INFO | src.logger | ============================================================
+2026-06-27 13:16:57,348 | INFO | src.logger | Feature Engineering Finished | Shape=(45211, 26)
+2026-06-27 13:16:57,350 | INFO | src.logger | Transforming training data
+2026-06-27 13:16:57,351 | INFO | src.logger | Fitting preprocessing pipeline
+2026-06-27 13:16:57,351 | INFO | src.logger | Building preprocessing pipeline
+2026-06-27 13:16:57,357 | INFO | src.logger | Categorical Columns : ['job', 'marital', 'education', 'default_flag', 'housing', 'loan', 'contact', 'month', 'poutcome', 'deposit']
+2026-06-27 13:16:57,358 | INFO | src.logger | Numerical Columns : ['age', 'balance', 'day', 'duration', 'campaign', 'pdays', 'previous', 'balance_log', 'campaign_log', 'previous_log', 'duration_log', 'balance_high', 'duration_high', 'campaign_high', 'pdays_contacted', 'age_group']
+2026-06-27 13:16:57,366 | ERROR | src.logger | A given column is not a column of the dataframe
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'deposit'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.13/site-packages/sklearn/utils/_indexing.py", line 469, in _get_column_indices
+    col_idx = all_columns.get_loc(col)
+  File "/home/airflow/.local/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'deposit'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/airflow/dags/src/main.py", line 54, in main
+    X, y = transform_train_data(df)
+           ~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/opt/airflow/dags/src/encoding.py", line 155, in transform_train_data
+    preprocessor = fit_preprocessor(df)
+  File "/opt/airflow/dags/src/encoding.py", line 100, in fit_preprocessor
+    preprocessor.fit(X)
+    ~~~~~~~~~~~~~~~~^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 938, in fit
+    self.fit_transform(X, y=y, **params)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.13/site-packages/sklearn/base.py", line 1336, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 991, in fit_transform
+    self._validate_column_callables(X)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/sklearn/compose/_column_transformer.py", line 545, in _validate_column_callables
+    transformer_to_input_indices[name] = _get_column_indices(X, columns)
+                                         ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.13/site-packages/sklearn/utils/_indexing.py", line 477, in _get_column_indices
+    raise ValueError("A given column is not a column of the dataframe") from e
+ValueError: A given column is not a column of the dataframe
+2026-06-27 13:20:32,424 | INFO | src.logger | ============================================================
+2026-06-27 13:20:32,426 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 13:20:32,427 | INFO | src.logger | ============================================================
+2026-06-27 13:20:32,645 | INFO | src.logger | ============================================================
+2026-06-27 13:20:32,646 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 13:20:32,647 | INFO | src.logger | ============================================================
+2026-06-27 13:20:32,670 | INFO | src.logger | Feature Engineering Finished | Shape=(45211, 26)
+2026-06-27 13:20:32,671 | INFO | src.logger | Transforming training data
+2026-06-27 13:20:32,678 | INFO | src.logger | Fitting preprocessing pipeline
+2026-06-27 13:20:32,680 | INFO | src.logger | Building preprocessing pipeline
+2026-06-27 13:20:32,692 | INFO | src.logger | Categorical Columns : ['job', 'marital', 'education', 'default_flag', 'housing', 'loan', 'contact', 'month', 'poutcome']
+2026-06-27 13:20:32,693 | INFO | src.logger | Numerical Columns : ['age', 'balance', 'day', 'duration', 'campaign', 'pdays', 'previous', 'balance_log', 'campaign_log', 'previous_log', 'duration_log', 'balance_high', 'duration_high', 'campaign_high', 'pdays_contacted', 'age_group']
+2026-06-27 13:20:32,892 | INFO | src.logger | Preprocessor saved successfully
+2026-06-27 13:20:33,017 | INFO | src.logger | Processed Shape : (45211, 60)
+2026-06-27 13:20:33,066 | INFO | src.logger | scale_pos_weight = nan
+2026-06-27 13:20:33,067 | INFO | src.logger | Building XGBoost model...
+2026-06-27 13:20:33,068 | INFO | src.logger | Model created successfully.
+2026-06-27 13:20:33,070 | INFO | src.logger | Training model...
+2026-06-27 13:20:33,097 | ERROR | src.logger | Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['no' 'yes']
+Traceback (most recent call last):
+  File "/opt/airflow/dags/src/main.py", line 81, in main
+    model = train_model(
+        model,
+        x_train,
+        y_train
+    )
+  File "/opt/airflow/dags/src/train.py", line 15, in train_model
+    model.fit(
+    ~~~~~~~~~^
+        x_train,
+        ^^^^^^^^
+        y_train
+        ^^^^^^^
+    )
+    ^
+  File "/home/airflow/.local/lib/python3.13/site-packages/xgboost/core.py", line 553, in inner_f
+    return func(**kwargs)
+  File "/home/airflow/.local/lib/python3.13/site-packages/xgboost/sklearn.py", line 1762, in fit
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['no' 'yes']
+2026-06-27 13:24:11,338 | INFO | src.logger | ============================================================
+2026-06-27 13:24:11,339 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 13:24:11,341 | INFO | src.logger | ============================================================
+2026-06-27 13:24:11,535 | INFO | src.logger | Dataset Shape : (45211, 17)
+2026-06-27 13:24:11,541 | INFO | src.logger | 
+Target Distribution
+deposit
+0    39922
+1     5289
+Name: count, dtype: int64
+2026-06-27 13:24:11,543 | INFO | src.logger | ============================================================
+2026-06-27 13:24:11,544 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 13:24:11,544 | INFO | src.logger | ============================================================
+2026-06-27 13:24:11,566 | INFO | src.logger | Feature Engineering Finished | Shape=(45211, 26)
+2026-06-27 13:24:11,568 | INFO | src.logger | Transforming training data
+2026-06-27 13:24:11,575 | INFO | src.logger | Fitting preprocessing pipeline
+2026-06-27 13:24:11,576 | INFO | src.logger | Building preprocessing pipeline
+2026-06-27 13:24:11,587 | INFO | src.logger | Categorical Columns : ['job', 'marital', 'education', 'default_flag', 'housing', 'loan', 'contact', 'month', 'poutcome']
+2026-06-27 13:24:11,589 | INFO | src.logger | Numerical Columns : ['age', 'balance', 'day', 'duration', 'campaign', 'pdays', 'previous', 'balance_log', 'campaign_log', 'previous_log', 'duration_log', 'balance_high', 'duration_high', 'campaign_high', 'pdays_contacted', 'age_group']
+2026-06-27 13:24:11,726 | INFO | src.logger | Preprocessor saved successfully
+2026-06-27 13:24:11,818 | INFO | src.logger | Processed Shape : (45211, 60)
+2026-06-27 13:24:11,845 | INFO | src.logger | Train Shape : (36168, 60)
+2026-06-27 13:24:11,847 | INFO | src.logger | Test Shape : (9043, 60)
+2026-06-27 13:24:11,849 | INFO | src.logger | scale_pos_weight = 15.097
+2026-06-27 13:24:11,850 | INFO | src.logger | scale_pos_weight = 15.096667454502482
+2026-06-27 13:24:11,852 | INFO | src.logger | Building XGBoost model...
+2026-06-27 13:24:11,853 | INFO | src.logger | Model created successfully.
+2026-06-27 13:24:11,854 | INFO | src.logger | Training model...
+2026-06-27 13:24:14,694 | INFO | src.logger | Model training completed.
+2026-06-27 13:24:14,717 | INFO | src.logger | Searching best threshold...
+2026-06-27 13:24:15,067 | INFO | src.logger | Best Threshold = 0.80
+2026-06-27 13:24:15,068 | INFO | src.logger | Best F1 Score = 0.6164
+2026-06-27 13:24:15,097 | INFO | src.logger | ============================================================
+2026-06-27 13:24:15,098 | INFO | src.logger | MODEL EVALUATION
+2026-06-27 13:24:15,099 | INFO | src.logger | ============================================================
+2026-06-27 13:24:15,100 | INFO | src.logger | Accuracy  : 0.8994
+2026-06-27 13:24:15,101 | INFO | src.logger | Precision : 0.5563
+2026-06-27 13:24:15,103 | INFO | src.logger | Recall    : 0.6909
+2026-06-27 13:24:15,104 | INFO | src.logger | F1 Score  : 0.6164
+2026-06-27 13:24:15,105 | INFO | src.logger | 
+Confusion Matrix
+2026-06-27 13:24:15,107 | INFO | src.logger | 
+[[7402  583]
+ [ 327  731]]
+2026-06-27 13:24:15,108 | INFO | src.logger | 
+Classification Report
+2026-06-27 13:24:15,109 | INFO | src.logger | 
+              precision    recall  f1-score   support
+
+           0       0.96      0.93      0.94      7985
+           1       0.56      0.69      0.62      1058
+
+    accuracy                           0.90      9043
+   macro avg       0.76      0.81      0.78      9043
+weighted avg       0.91      0.90      0.90      9043
+
+2026-06-27 13:24:15,110 | INFO | src.logger | Saving model to models/xgboost_model.pkl
+2026-06-27 13:24:15,122 | INFO | src.logger | Model saved successfully.
+2026-06-27 13:24:15,123 | INFO | src.logger | ============================================================
+2026-06-27 13:24:15,124 | INFO | src.logger | PIPELINE FINISHED
+2026-06-27 13:24:15,125 | INFO | src.logger | ============================================================
+2026-06-27 13:33:25,078 | INFO | src.logger | ============================================================
+2026-06-27 13:33:25,079 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 13:33:25,080 | INFO | src.logger | ============================================================
+2026-06-27 13:33:25,096 | INFO | src.logger | Feature Engineering Finished | Shape=(1, 25)
+2026-06-27 13:33:25,097 | INFO | src.logger | Transforming prediction data
+2026-06-27 13:44:08,485 | INFO | src.logger | ============================================================
+2026-06-27 13:44:08,487 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 13:44:08,488 | INFO | src.logger | ============================================================
+2026-06-27 13:44:08,498 | INFO | src.logger | Feature Engineering Finished | Shape=(1, 25)
+2026-06-27 13:44:08,499 | INFO | src.logger | Transforming prediction data
+2026-06-27 13:52:22,847 | INFO | src.logger | ============================================================
+2026-06-27 13:52:22,848 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 13:52:22,849 | INFO | src.logger | ============================================================
+2026-06-27 13:52:22,860 | INFO | src.logger | Feature Engineering Finished | Shape=(1, 25)
+2026-06-27 13:52:22,861 | INFO | src.logger | Transforming prediction data
+2026-06-27 14:01:34,234 | INFO | src.logger | ============================================================
+2026-06-27 14:01:34,235 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 14:01:34,236 | INFO | src.logger | ============================================================
+2026-06-27 14:01:34,248 | INFO | src.logger | Feature Engineering Finished | Shape=(1, 25)
+2026-06-27 14:01:34,249 | INFO | src.logger | Transforming prediction data
+,348 | INFO | logger | ============================================================
+2026-06-27 15:49:32,349 | ERROR | logger | [Errno 2] No such file or directory: 'D:\\bank_project\\src\\bank_data_transformed.csv'
+Traceback (most recent call last):
+  File "D:\bank_project\src\main.py", line 43, in main
+    df = pd.read_csv(file_path)
+  File "D:\bank_project\.venv\lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "D:\bank_project\.venv\lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "D:\bank_project\.venv\lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "D:\bank_project\.venv\lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "D:\bank_project\.venv\lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\bank_project\\src\\bank_data_transformed.csv'
+2026-06-27 15:49:52,345 | INFO | logger | ============================================================
+2026-06-27 15:49:52,345 | INFO | logger | PIPELINE STARTED
+2026-06-27 15:49:52,345 | INFO | logger | ============================================================
+2026-06-27 15:49:52,449 | INFO | logger | Dataset Shape : (45211, 17)
+2026-06-27 15:49:52,460 | INFO | logger | 
+Target Distribution
+deposit
+0    39922
+1     5289
+Name: count, dtype: int64
+2026-06-27 15:49:52,461 | INFO | logger | ============================================================
+2026-06-27 15:49:52,461 | INFO | logger | Starting Feature Engineering
+2026-06-27 15:49:52,461 | INFO | logger | ============================================================
+2026-06-27 15:49:52,484 | INFO | logger | Feature Engineering Finished | Shape=(45211, 26)
+2026-06-27 15:49:52,485 | INFO | logger | Transforming training data
+2026-06-27 15:49:52,492 | INFO | logger | Fitting preprocessing pipeline
+2026-06-27 15:49:52,492 | INFO | logger | Building preprocessing pipeline
+2026-06-27 15:49:52,502 | INFO | logger | Categorical Columns : ['job', 'marital', 'education', 'default_flag', 'housing', 'loan', 'contact', 'month', 'poutcome']
+2026-06-27 15:49:52,502 | INFO | logger | Numerical Columns : ['age', 'balance', 'day', 'duration', 'campaign', 'pdays', 'previous', 'balance_log', 'campaign_log', 'previous_log', 'duration_log', 'balance_high', 'duration_high', 'campaign_high', 'pdays_contacted', 'age_group']
+2026-06-27 15:49:52,604 | INFO | logger | Preprocessor saved successfully
+2026-06-27 15:49:52,693 | INFO | logger | Processed Shape : (45211, 60)
+2026-06-27 15:49:52,720 | INFO | logger | Train Shape : (36168, 60)
+2026-06-27 15:49:52,720 | INFO | logger | Test Shape : (9043, 60)
+2026-06-27 15:49:52,721 | INFO | logger | scale_pos_weight = 15.097
+2026-06-27 15:49:52,721 | INFO | logger | scale_pos_weight = 15.096667454502482
+2026-06-27 15:49:52,721 | INFO | logger | Building XGBoost model...
+2026-06-27 15:49:52,722 | INFO | logger | Model created successfully.
+2026-06-27 15:49:52,722 | INFO | logger | Training model...
+2026-06-27 15:49:56,604 | INFO | logger | Model training completed.
+2026-06-27 15:49:56,643 | INFO | logger | Searching best threshold...
+2026-06-27 15:49:56,896 | INFO | logger | Best Threshold = 0.70
+2026-06-27 15:49:56,896 | INFO | logger | Best F1 Score = 0.6076
+2026-06-27 15:49:56,928 | INFO | logger | ============================================================
+2026-06-27 15:49:56,928 | INFO | logger | MODEL EVALUATION
+2026-06-27 15:49:56,929 | INFO | logger | ============================================================
+2026-06-27 15:49:56,929 | INFO | logger | Accuracy  : 0.8839
+2026-06-27 15:49:56,929 | INFO | logger | Precision : 0.5025
+2026-06-27 15:49:56,929 | INFO | logger | Recall    : 0.7684
+2026-06-27 15:49:56,930 | INFO | logger | F1 Score  : 0.6076
+2026-06-27 15:49:56,930 | INFO | logger | 
+Confusion Matrix
+2026-06-27 15:49:56,930 | INFO | logger | 
+[[7180  805]
+ [ 245  813]]
+2026-06-27 15:49:56,930 | INFO | logger | 
+Classification Report
+2026-06-27 15:49:56,931 | INFO | logger | 
+              precision    recall  f1-score   support
+
+           0       0.97      0.90      0.93      7985
+           1       0.50      0.77      0.61      1058
+
+    accuracy                           0.88      9043
+   macro avg       0.73      0.83      0.77      9043
+weighted avg       0.91      0.88      0.89      9043
+
+2026-06-27 15:49:56,931 | INFO | logger | Saving model to models\xgboost_model.pkl
+2026-06-27 15:49:56,953 | INFO | logger | Model saved successfully.
+2026-06-27 15:49:56,953 | INFO | logger | ============================================================
+2026-06-27 15:49:56,953 | INFO | logger | PIPELINE FINISHED
+2026-06-27 15:49:56,953 | INFO | logger | ============================================================
+2026-06-27 15:59:52,341 | INFO | logger | ============================================================
+2026-06-27 15:59:52,342 | INFO | logger | PIPELINE STARTED
+2026-06-27 15:59:52,342 | INFO | logger | ============================================================
+2026-06-27 15:59:52,453 | INFO | logger | Dataset Shape : (45211, 17)
+2026-06-27 15:59:52,457 | INFO | logger | 
+Target Distribution
+deposit
+0    39922
+1     5289
+Name: count, dtype: int64
+2026-06-27 15:59:52,458 | INFO | logger | ============================================================
+2026-06-27 15:59:52,458 | INFO | logger | Starting Feature Engineering
+2026-06-27 15:59:52,458 | INFO | logger | ============================================================
+2026-06-27 15:59:52,482 | INFO | logger | Feature Engineering Finished | Shape=(45211, 26)
+2026-06-27 15:59:52,484 | INFO | logger | Transforming training data
+2026-06-27 15:59:52,490 | INFO | logger | Fitting preprocessing pipeline
+2026-06-27 15:59:52,491 | INFO | logger | Building preprocessing pipeline
+2026-06-27 15:59:52,501 | INFO | logger | Categorical Columns : ['job', 'marital', 'education', 'default_flag', 'housing', 'loan', 'contact', 'month', 'poutcome']
+2026-06-27 15:59:52,501 | INFO | logger | Numerical Columns : ['age', 'balance', 'day', 'duration', 'campaign', 'pdays', 'previous', 'balance_log', 'campaign_log', 'previous_log', 'duration_log', 'balance_high', 'duration_high', 'campaign_high', 'pdays_contacted', 'age_group']
+2026-06-27 15:59:52,605 | INFO | logger | Preprocessor saved successfully
+2026-06-27 15:59:52,701 | INFO | logger | Processed Shape : (45211, 60)
+2026-06-27 15:59:52,728 | INFO | logger | Train Shape : (36168, 60)
+2026-06-27 15:59:52,729 | INFO | logger | Test Shape : (9043, 60)
+2026-06-27 15:59:52,729 | INFO | logger | scale_pos_weight = 15.097
+2026-06-27 15:59:52,730 | INFO | logger | scale_pos_weight = 15.096667454502482
+2026-06-27 15:59:52,730 | INFO | logger | Building XGBoost model...
+2026-06-27 15:59:52,730 | INFO | logger | Model created successfully.
+2026-06-27 15:59:52,730 | INFO | logger | Training model...
+2026-06-27 15:59:56,638 | INFO | logger | Model training completed.
+2026-06-27 15:59:56,690 | INFO | logger | Searching best threshold...
+2026-06-27 15:59:56,967 | INFO | logger | Best Threshold = 0.70
+2026-06-27 15:59:56,968 | INFO | logger | Best F1 Score = 0.6076
+2026-06-27 15:59:56,987 | INFO | logger | ============================================================
+2026-06-27 15:59:56,987 | INFO | logger | MODEL EVALUATION
+2026-06-27 15:59:56,987 | INFO | logger | ============================================================
+2026-06-27 15:59:56,988 | INFO | logger | Accuracy  : 0.8839
+2026-06-27 15:59:56,988 | INFO | logger | Precision : 0.5025
+2026-06-27 15:59:56,988 | INFO | logger | Recall    : 0.7684
+2026-06-27 15:59:56,988 | INFO | logger | F1 Score  : 0.6076
+2026-06-27 15:59:56,988 | INFO | logger | 
+Confusion Matrix
+2026-06-27 15:59:56,989 | INFO | logger | 
+[[7180  805]
+ [ 245  813]]
+2026-06-27 15:59:56,989 | INFO | logger | 
+Classification Report
+2026-06-27 15:59:56,989 | INFO | logger | 
+              precision    recall  f1-score   support
+
+           0       0.97      0.90      0.93      7985
+           1       0.50      0.77      0.61      1058
+
+    accuracy                           0.88      9043
+   macro avg       0.73      0.83      0.77      9043
+weighted avg       0.91      0.88      0.89      9043
+
+2026-06-27 15:59:56,989 | INFO | logger | Saving model to models\xgboost_model.pkl
+2026-06-27 15:59:57,017 | INFO | logger | Model saved successfully.
+2026-06-27 15:59:57,017 | INFO | logger | ============================================================
+2026-06-27 15:59:57,018 | INFO | logger | PIPELINE FINISHED
+2026-06-27 15:59:57,018 | INFO | logger | ============================================================
+2026-06-27 16:13:49,363 | INFO | src.logger | ============================================================
+2026-06-27 16:13:49,363 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 16:13:49,364 | INFO | src.logger | ============================================================
+2026-06-27 16:13:49,395 | INFO | src.logger | Feature Engineering Finished | Shape=(1, 25)
+2026-06-27 16:13:49,395 | INFO | src.logger | Transforming prediction data
+2026-06-27 14:14:56,210 | INFO | src.logger | ============================================================
+2026-06-27 14:14:56,212 | INFO | src.logger | PIPELINE STARTED
+2026-06-27 14:14:56,213 | INFO | src.logger | ============================================================
+2026-06-27 14:14:56,537 | INFO | src.logger | Dataset Shape : (45211, 17)
+2026-06-27 14:14:56,550 | INFO | src.logger | 
+Target Distribution
+deposit
+0    39922
+1     5289
+Name: count, dtype: int64
+2026-06-27 14:14:56,551 | INFO | src.logger | ============================================================
+2026-06-27 14:14:56,553 | INFO | src.logger | Starting Feature Engineering
+2026-06-27 14:14:56,554 | INFO | src.logger | ============================================================
+2026-06-27 14:14:56,594 | INFO | src.logger | Feature Engineering Finished | Shape=(45211, 26)
+2026-06-27 14:14:56,597 | INFO | src.logger | Transforming training data
+2026-06-27 14:14:56,609 | INFO | src.logger | Fitting preprocessing pipeline
+2026-06-27 14:14:56,611 | INFO | src.logger | Building preprocessing pipeline
+2026-06-27 14:14:56,627 | INFO | src.logger | Categorical Columns : ['job', 'marital', 'education', 'default_flag', 'housing', 'loan', 'contact', 'month', 'poutcome']
+2026-06-27 14:14:56,629 | INFO | src.logger | Numerical Columns : ['age', 'balance', 'day', 'duration', 'campaign', 'pdays', 'previous', 'balance_log', 'campaign_log', 'previous_log', 'duration_log', 'balance_high', 'duration_high', 'campaign_high', 'pdays_contacted', 'age_group']
+2026-06-27 14:14:57,066 | INFO | src.logger | Preprocessor saved successfully
+2026-06-27 14:14:57,179 | INFO | src.logger | Processed Shape : (45211, 60)
+2026-06-27 14:14:57,211 | INFO | src.logger | Train Shape : (36168, 60)
+2026-06-27 14:14:57,212 | INFO | src.logger | Test Shape : (9043, 60)
+2026-06-27 14:14:57,214 | INFO | src.logger | scale_pos_weight = 15.097
+2026-06-27 14:14:57,215 | INFO | src.logger | scale_pos_weight = 15.096667454502482
+2026-06-27 14:14:57,217 | INFO | src.logger | Building XGBoost model...
+2026-06-27 14:14:57,219 | INFO | src.logger | Model created successfully.
+2026-06-27 14:14:57,221 | INFO | src.logger | Training model...
+2026-06-27 14:15:01,129 | INFO | src.logger | Model training completed.
+2026-06-27 14:15:01,190 | INFO | src.logger | Searching best threshold...
+2026-06-27 14:15:01,718 | INFO | src.logger | Best Threshold = 0.80
+2026-06-27 14:15:01,720 | INFO | src.logger | Best F1 Score = 0.6164
+2026-06-27 14:15:01,762 | INFO | src.logger | ============================================================
+2026-06-27 14:15:01,764 | INFO | src.logger | MODEL EVALUATION
+2026-06-27 14:15:01,766 | INFO | src.logger | ============================================================
+2026-06-27 14:15:01,767 | INFO | src.logger | Accuracy  : 0.8994
+2026-06-27 14:15:01,769 | INFO | src.logger | Precision : 0.5563
+2026-06-27 14:15:01,771 | INFO | src.logger | Recall    : 0.6909
+2026-06-27 14:15:01,773 | INFO | src.logger | F1 Score  : 0.6164
+2026-06-27 14:15:01,774 | INFO | src.logger | 
+Confusion Matrix
+2026-06-27 14:15:01,777 | INFO | src.logger | 
+[[7402  583]
+ [ 327  731]]
+2026-06-27 14:15:01,778 | INFO | src.logger | 
+Classification Report
+2026-06-27 14:15:01,779 | INFO | src.logger | 
+              precision    recall  f1-score   support
+
+           0       0.96      0.93      0.94      7985
+           1       0.56      0.69      0.62      1058
+
+    accuracy                           0.90      9043
+   macro avg       0.76      0.81      0.78      9043
+weighted avg       0.91      0.90      0.90      9043
+
+2026-06-27 14:15:01,781 | INFO | src.logger | Saving model to models/xgboost_model.pkl
+2026-06-27 14:15:01,815 | INFO | src.logger | Model saved successfully.
+2026-06-27 14:15:01,816 | INFO | src.logger | ============================================================
+2026-06-27 14:15:01,818 | INFO | src.logger | PIPELINE FINISHED
+2026-06-27 14:15:01,820 | INFO | src.logger | ============================================================
