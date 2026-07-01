@@ -25,15 +25,9 @@ jobs:
           pip install -r requirements.txt
 
       # تدريب النموذج
-      #kdfkldnf
       - name: Train Model
         run: |
-          python src/main.py
-
-      # تقييم النموذج
-      - name: Evaluate Model
-        run: |
-          python src/evaluation.py
+          python -m src.main
 
       # حفظ النموذج
       - name: Upload Model
