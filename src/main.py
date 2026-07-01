@@ -1,19 +1,19 @@
 import os
 import pandas as pd
 
-from src.logger import logger
-from src.feature_engineering import create_features
-from src.encoding import transform_train_data
-from src.data_split import split_data
-from src.model import (
+from logger import logger
+from feature_engineering import create_features
+from encoding import transform_train_data
+from data_split import split_data
+from model import (
     calculate_class_weight,
     build_model
 )
-from src.train import (
+from train import (
     train_model,
     save_model
 )
-from src.evaluation import (
+from evaluation import (
     find_best_threshold,
     evaluate
 )
