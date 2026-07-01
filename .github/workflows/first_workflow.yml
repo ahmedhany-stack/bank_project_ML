@@ -1,0 +1,42 @@
+name: ML Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+
+    steps:
+      # تنزيل المشروع
+      - uses: actions/checkout@v4
+
+      # تثبيت Python
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # تثبيت المكتبات
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # تدريب النموذج
+      - name: Train Model
+        run: |
+          python src/main.py
+
+      # تقييم النموذج
+      - name: Evaluate Model
+        run: |
+          python src/evaluation.py
+
+      # حفظ النموذج
+      - name: Upload Model
+        uses: actions/upload-artifact@v4
+        with:
+          name: trained-model
+          path: models/
