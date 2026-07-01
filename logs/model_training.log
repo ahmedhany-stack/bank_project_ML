@@ -618,3 +618,64 @@ weighted avg       0.91      0.90      0.90      9043
 2026-06-27 14:15:01,816 | INFO | src.logger | ============================================================
 2026-06-27 14:15:01,818 | INFO | src.logger | PIPELINE FINISHED
 2026-06-27 14:15:01,820 | INFO | src.logger | ============================================================
+2026-07-01 11:39:48,585 | INFO | src.logger | ============================================================
+2026-07-01 11:39:48,585 | INFO | src.logger | PIPELINE STARTED
+2026-07-01 11:39:48,586 | INFO | src.logger | ============================================================
+2026-07-01 11:39:48,716 | INFO | src.logger | Dataset Shape : (45211, 17)
+2026-07-01 11:39:48,749 | INFO | src.logger | 
+Target Distribution
+deposit
+0    39922
+1     5289
+Name: count, dtype: int64
+2026-07-01 11:39:48,749 | INFO | src.logger | ============================================================
+2026-07-01 11:39:48,750 | INFO | src.logger | Starting Feature Engineering
+2026-07-01 11:39:48,750 | INFO | src.logger | ============================================================
+2026-07-01 11:39:48,776 | INFO | src.logger | Feature Engineering Finished | Shape=(45211, 26)
+2026-07-01 11:39:48,776 | INFO | src.logger | Transforming training data
+2026-07-01 11:39:48,791 | INFO | src.logger | Fitting preprocessing pipeline
+2026-07-01 11:39:48,791 | INFO | src.logger | Building preprocessing pipeline
+2026-07-01 11:39:48,798 | INFO | src.logger | Categorical Columns : ['job', 'marital', 'education', 'default_flag', 'housing', 'loan', 'contact', 'month', 'poutcome']
+2026-07-01 11:39:48,798 | INFO | src.logger | Numerical Columns : ['age', 'balance', 'day', 'duration', 'campaign', 'pdays', 'previous', 'balance_log', 'campaign_log', 'previous_log', 'duration_log', 'balance_high', 'duration_high', 'campaign_high', 'pdays_contacted', 'age_group']
+2026-07-01 11:39:48,889 | INFO | src.logger | Preprocessor saved successfully
+2026-07-01 11:39:48,999 | INFO | src.logger | Processed Shape : (45211, 60)
+2026-07-01 11:39:49,041 | INFO | src.logger | Train Shape : (36168, 60)
+2026-07-01 11:39:49,041 | INFO | src.logger | Test Shape : (9043, 60)
+2026-07-01 11:39:49,042 | INFO | src.logger | scale_pos_weight = 15.097
+2026-07-01 11:39:49,042 | INFO | src.logger | scale_pos_weight = 15.096667454502482
+2026-07-01 11:39:49,042 | INFO | src.logger | Building XGBoost model...
+2026-07-01 11:39:49,043 | INFO | src.logger | Model created successfully.
+2026-07-01 11:39:49,043 | INFO | src.logger | Training model...
+2026-07-01 11:39:52,848 | INFO | src.logger | Model training completed.
+2026-07-01 11:39:52,880 | INFO | src.logger | Searching best threshold...
+2026-07-01 11:39:53,130 | INFO | src.logger | Best Threshold = 0.70
+2026-07-01 11:39:53,130 | INFO | src.logger | Best F1 Score = 0.6076
+2026-07-01 11:39:53,140 | INFO | src.logger | ============================================================
+2026-07-01 11:39:53,140 | INFO | src.logger | MODEL EVALUATION
+2026-07-01 11:39:53,140 | INFO | src.logger | ============================================================
+2026-07-01 11:39:53,140 | INFO | src.logger | Accuracy  : 0.8839
+2026-07-01 11:39:53,140 | INFO | src.logger | Precision : 0.5025
+2026-07-01 11:39:53,140 | INFO | src.logger | Recall    : 0.7684
+2026-07-01 11:39:53,140 | INFO | src.logger | F1 Score  : 0.6076
+2026-07-01 11:39:53,149 | INFO | src.logger | 
+Confusion Matrix
+2026-07-01 11:39:53,149 | INFO | src.logger | 
+[[7180  805]
+ [ 245  813]]
+2026-07-01 11:39:53,150 | INFO | src.logger | 
+Classification Report
+2026-07-01 11:39:53,150 | INFO | src.logger | 
+              precision    recall  f1-score   support
+
+           0       0.97      0.90      0.93      7985
+           1       0.50      0.77      0.61      1058
+
+    accuracy                           0.88      9043
+   macro avg       0.73      0.83      0.77      9043
+weighted avg       0.91      0.88      0.89      9043
+
+2026-07-01 11:39:53,151 | INFO | src.logger | Saving model to models\xgboost_model.pkl
+2026-07-01 11:39:53,174 | INFO | src.logger | Model saved successfully.
+2026-07-01 11:39:53,174 | INFO | src.logger | ============================================================
+2026-07-01 11:39:53,174 | INFO | src.logger | PIPELINE FINISHED
+2026-07-01 11:39:53,174 | INFO | src.logger | ============================================================
