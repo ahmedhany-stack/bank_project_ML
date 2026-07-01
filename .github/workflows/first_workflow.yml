@@ -1,37 +1,110 @@
-name: ML Pipeline by GitHub Actions
+name: ML Pipeline
 
 on:
   push:
     branches:
       - main
 
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
   train:
+    name: Train & Evaluate Model
     runs-on: ubuntu-latest
 
     steps:
-      # تنزيل المشروع
-      - uses: actions/checkout@v4
 
-      # تثبيت Python
-      - uses: actions/setup-python@v5
+      # ==========================================
+      # Checkout Repository
+      # ==========================================
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # ==========================================
+      # Setup Python
+      # ==========================================
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      # تثبيت المكتبات
+      # ==========================================
+      # Cache pip Packages
+      # ==========================================
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # ==========================================
+      # Install Dependencies
+      # ==========================================
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # تدريب النموذج
-      - name: Train Model
+      # ==========================================
+      # Show Python Version
+      # ==========================================
+      - name: Python Version
+        run: python --version
+
+      # ==========================================
+      # Show Installed Packages
+      # ==========================================
+      - name: Installed Packages
+        run: pip list
+
+      # ==========================================
+      # Train + Evaluate
+      # ==========================================
+      - name: Run ML Pipeline
         run: |
           python -m src.main
 
-      # حفظ النموذج
+      # ==========================================
+      # Upload Trained Model
+      # ==========================================
       - name: Upload Model
         uses: actions/upload-artifact@v4
         with:
           name: trained-model
           path: models/
+
+      # ==========================================
+      # Upload Logs
+      # ==========================================
+      - name: Upload Logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: logs/
+
+      # ==========================================
+      # Upload Reports
+      # ==========================================
+      - name: Upload Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: reports/
+
+      # ==========================================
+      # Upload Plots
+      # ==========================================
+      - name: Upload Plots
+        uses: actions/upload-artifact@v4
+        with:
+          name: plots
+          path: plots/
